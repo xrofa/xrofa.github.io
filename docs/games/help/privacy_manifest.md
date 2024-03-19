@@ -1,0 +1,1 @@
+../../apps/help/privacy_manifest.md

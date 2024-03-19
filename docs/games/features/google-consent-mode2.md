@@ -1,0 +1,1 @@
+../../apps/features/google-consent-mode2.md

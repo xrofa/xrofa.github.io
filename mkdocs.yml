@@ -1,0 +1,269 @@
+# Project information
+site_name: UsercentricsDocs
+site_description: Usercentrics Documentation
+site_author: Usercentrics
+copyright: 'Copyright &copy; 2023 Usercentrics'
+site_url: https://usercentrics.com/docs/
+
+theme:
+  name: material
+  custom_dir: material/.overrides/
+  logo: 'assets/usercentrics-logo.min_.svg'
+  favicon: 'assets/favicon.ico'
+  font: false
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - search.suggest
+    - content.tabs.link
+
+watch:
+  - material
+  - docs
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/jira
+      link: 'https://usercentrics.atlassian.net/servicedesk/customer/portals'
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/usercentrics'
+    - icon: fontawesome/brands/twitter
+      link: 'https://twitter.com/usercentrics'
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+  - pymdownx.tilde
+  - codehilite:
+      guess_lang: false
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - markdown_include.include:
+      base_path: docs
+
+plugins:
+  - macros
+  - search
+  - minify:
+      minify_html: true
+      minify_css: true
+      minify_js: true
+      htmlmin_opts:
+        remove_comments: true
+      cache_safe: true
+      css_files:
+        - stylesheets/extra.css
+      js_files:
+        - javascripts/extra.js
+
+strict: true
+
+nav:
+
+  - Home: index.md
+
+  - CMP Configuration:
+      - Account Configuration: config/account-config.md
+      - Banner Configuration: config/banner-config.md
+
+  - For Web:
+      - Introduction: web/intro.md
+      - Specifications: web/browsers-specifications.md
+      - Releases: web/releases.md
+
+      - Updates & Migration:
+        - Why update to V3?: web/v3.md
+        - Migrate from V2: web/migration/migration-from-v2.md
+
+      - Integration:
+        - Browser UI:
+          - Integration: web/implementation/ui.md
+          - Optional Steps: web/implementation/ui/optional-steps.md
+          - Support attributes:
+            - Interfaces: web/implementation/ui/interfaces.md
+            - Types: web/implementation/ui/types.md
+        - Browser SDK:
+          - Integration: web/implementation/sdk.md
+          - CmpController Methods: web/implementation/sdk/methods.md
+          - Support attributes:
+            - Classes: web/implementation/sdk/classes.md
+            - Enums: web/implementation/sdk/enums.md
+            - Interfaces: web/implementation/sdk/interfaces.md
+            - Types: web/implementation/sdk/types.md
+
+      - Features:
+        - A/B Testing:
+          - Introduction: web/features/a-b-testing/introduction.md
+          - Setup: web/features/a-b-testing/setup.md
+          - Available Events: web/features/a-b-testing/available-events.md
+          - Available Properties: web/features/a-b-testing/available-properties.md
+          - Third-Party Tool Guides:
+            - Optimizely: web/features/a-b-testing/third-party-tool-guides/optimizely.md
+            - Kameleoon: web/features/a-b-testing/third-party-tool-guides/kameleoon.md
+            - TRBO: web/features/a-b-testing/third-party-tool-guides/trbo.md
+            - Dynamic Yield: web/features/a-b-testing/third-party-tool-guides/dynamic-yield.md
+            - Google Optimize: web/features/a-b-testing/third-party-tool-guides/google-optimize.md
+        - Browser UI API:
+          - Control UI: web/features/api/control-ui.md
+          - Control Functionality: web/features/api/control-functionality.md
+          - Support attributes:
+            - Interfaces: web/features/api/interfaces.md
+            - Enums: web/features/api/enums.md
+            - Types: web/features/api/types.md
+        # - Customization:
+        #   - Custom CSS: web/features/custom-css/configuration.md
+        - Embeddings: web/features/embeddings/embeddings.md
+        - Events:
+          - consent_status: web/features/events/consent-events.md
+          - UC_CONSENT: web/features/events/uc-consent.md
+          - UC_UI_INITIALIZED: web/features/events/uc-ui-initialized.md
+          - UC_UI_VIEW_CHANGED: web/features/events/uc-ui-view-changed.md
+          - UC_UI_CMP_EVENT: web/features/events/uc-ui-cmp-event.md
+          - Examples:
+            - Usage as Window Events: web/features/events/examples/window-events.md
+            - Reload page after consent is given: web/features/events/examples/reload-page.md
+            - Check if it is the first visit: web/features/events/examples/first-visit.md
+            - Load iframe via Event Listener: web/features/events/examples/load-iframe.md
+            - Add a script to the head via Event Listener: web/features/events/examples/add-script-to-head.md
+            - Hide iframe when the banner is shown: web/features/events/examples/hide-iframes.md
+        - Geolocation Rules: web/features/geolocation/rulesets.md
+        - Interaction Analytics:
+          - Introduction: web/features/interaction-analytics/introduction.md
+          - Overview: web/features/interaction-analytics/overview.md
+          - Dashboards: web/features/interaction-analytics/dashboards.md
+          - CSV Download: web/features/interaction-analytics/csv-download.md
+          - Tracked Interactions / Events: web/features/interaction-analytics/tracked-interactions-events.md
+          - FAQ: web/features/interaction-analytics/faq.md
+        - Smart Data Protector: web/features/extensions/smart-data-protector.md
+        - TCF 2:
+          - General Information: web/features/tcf2/general-information.md
+          - Configuration:
+            - Configure TCF 2.2 Framework Settings: web/features/tcf2/configure-tcf-2-framework-settings.md
+            - Configure the vendors: web/features/tcf2/configure-the-vendors.md
+            - Configure the Design/Layout: web/features/tcf2/configure-the-design-layout.md
+            - Service Integration: web/features/tcf2/service-integration.md
+        - Google Tag Manager:
+            - Configuration: web/features/google-tag-manager/configuration.md
+        - Google Consent Mode: 
+            - General Information: web/features/google-consent-mode/general-information.md
+            - Google Services that support Consent Mode: web/features/google-consent-mode/supported-google-services.md
+            - Prerequisites: web/features/google-consent-mode/pre-requisites.md
+            - Implementation Example: web/features/google-consent-mode/implementation-example.md
+
+  - For Apps:
+      - Introduction: apps/intro.md
+      - Specifications: apps/specifications.md
+      - Releases: apps/releases.md
+      - Samples: apps/samples.md
+
+      - Integration:
+          - Install: apps/integration/install.md
+          - Configure: apps/integration/configure.md
+          - Initialize: apps/integration/initialize.md
+          - Collect Consent: apps/integration/collect-consent.md
+          - Apply Consent: apps/integration/apply-consent.md
+
+      - Optimization:
+          - UI Customization: apps/optimization/customization.md
+          - A/B Testing: apps/optimization/ab-testing.md
+
+      - Features:
+          - Consent Mediation: apps/features/consent-mediation.md
+          - Google Consent Mode: apps/features/google-consent-mode.md
+          - Google Additional Consent v2: apps/features/google-additional-consent.md
+          - Restore User Sessions: apps/features/restore-user-sessions.md
+          - Clear User Session: apps/features/clear-user-session.md
+          - Consent Choice Persistence: apps/features/consent-choice-persistence.md
+          - WebView Continuity: apps/features/webview-continuity.md
+          - Custom Hyperlinks: apps/features/custom-hyperlinks.md
+          - Build your own UI: apps/features/build_own_ui.md
+
+      - Help:
+          - App Tracking Transparency Framework (ATT): apps/help/att.md
+          - Apple's Privacy Manifest: apps/help/privacy_manifest.md
+
+      - API:
+          - Core API: apps/api/core-api.md
+          - Event API: apps/api/event-api.md
+
+  - For Mobile Games:
+      - Introduction: games/intro.md
+      - Specifications: games/specifications.md
+      - Releases: games/releases.md
+      - Sample: games/samples.md
+
+      - Integration:
+          - Install: games/integration/install.md
+          - Configure: games/integration/configure.md
+          - Initialize: games/integration/initialize.md
+          - Collect Consent: games/integration/collect-consent.md
+          - Apply Consent: games/integration/apply_consent.md
+
+      - Optimization:
+          - UI Customization: games/optimization/customization.md
+          - A/B Testing: games/optimization/ab-testing.md
+
+      - Features:
+          - Consent Mediation: games/features/consent-mediation.md
+          - Google Consent Mode: games/features/google-consent-mode.md
+          - Google Additional Consent v2: games/features/google-additional-consent.md
+          - Build your own UI: games/features/build_own_ui.md
+          - Restore User Sessions: games/features/restore-user-sessions.md
+          - Clear User Session: games/features/clear-user-session.md
+          - Consent Choice Persistence: games/features/consent-choice-persistence.md
+
+      - Help:
+          - App Tracking Transparency Framework (ATT): games/help/att.md
+          - Apple's Privacy Manifest: games/help/privacy_manifest.md
+
+      - API:
+          - Core API: games/api/core-api.md
+          - Event API: games/api/event-api.md
+
+  - For TV:
+      - Introduction: tv/intro.md
+      - Install the TV SDK: tv/install.md
+      - Configure the Banner: tv/config.md
+      - Present the Banner: tv/present.md

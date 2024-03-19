@@ -1,0 +1,5 @@
+A/B testing refers to a randomized experimentation process that includes two or more versions of a variable (web page, element, etc.), which are shown to different users at different times to determine which version performs best with users and drives the best business metrics.
+
+We now offer A/B Testing functionality via the Usercentrics Consent Management Platform, by enabling changing specific values of the Consent Management Platform, such as color, text, and UI elements. This allows you to identify the best version of your Consent Management Platform to maximize the impact of your website on your business.
+
+In this documentation, we will explain in detail how to enable A/B Testing in the Admin Interface and how to configure the different variants you want to test. We will also show you how to perform A/B Testing with our internal feature or how to set it up in your preferred external A/B testing tools, such as Kameleoon, Trbo or Optimizely. Additionally, we provide recommendations to make your A/B testing simpler and more efficient.

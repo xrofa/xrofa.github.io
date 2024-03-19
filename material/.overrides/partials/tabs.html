@@ -1,0 +1,12 @@
+<!-- Navigation tabs -->
+<nav class="uc-header__menu md-grid">
+    {% for nav_item in nav %}
+    {% if not nav_item.children %}
+    <a href="{{ nav_item.url|url }}" class="uc-header__item " target="_self">{{ nav_item.title }}</a>
+    {% else %}
+    <a href="{{ nav_item.children[0].url|url }}" class="uc-header__item " target="_self">{{
+        nav_item.title
+        }}</a>
+    {% endif %}
+    {% endfor %}
+</nav>
